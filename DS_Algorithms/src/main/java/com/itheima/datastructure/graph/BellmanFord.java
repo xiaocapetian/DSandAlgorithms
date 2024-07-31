@@ -54,16 +54,19 @@ public class BellmanFord {
     private static void bellmanFord(List<Vertex> graph, Vertex source) {
         source.dist = 0;
         int size = graph.size();
-        // 1. 进行 顶点个数 - 1 轮处理
+        // 1. 进行 顶点个数 - 1 轮处理 n个节点就循环n-1次
         for (int i = 0; i < size - 1; i++) {
             // 2. 遍历所有的边
-            for (Vertex s : graph) {
-                for (Edge edge : s.edges) {
+            // 2.1 遍历每个节点
+            for (Vertex start : graph) {
+                //2.2 遍历每个节点所有的边
+                for (Edge edge : start.edges) {
                     // 3. 处理每一条边
-                    Vertex e = edge.linked;
-                    if (s.dist != Integer.MAX_VALUE && s.dist + edge.weight < e.dist) {
-                        e.dist = s.dist + edge.weight;
-                        e.prev = s;
+                    Vertex end = edge.linked;
+                    if (start.dist != Integer.MAX_VALUE && start.dist + edge.weight < end.dist) {
+                        //起点距离+权重<终点距离
+                        end.dist = start.dist + edge.weight;
+                        end.prev = start;
                     }
                 }
             }

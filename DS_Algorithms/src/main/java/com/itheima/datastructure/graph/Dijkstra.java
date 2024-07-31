@@ -71,6 +71,9 @@ public class Dijkstra {
         }
     }
 
+    /**
+     * 找一个距离最小的节点,作为当前节点
+     */
     private static Vertex chooseMinDistVertex(ArrayList<Vertex> list) {
         Vertex min = list.get(0);
         for (int i = 1; i < list.size(); i++) {

@@ -29,6 +29,10 @@ public class DijkstraPriorityQueue {
     }
 
     private static void dijkstra(List<Vertex> graph, Vertex source) {
+        /*
+         * 注意:这里使用了优先队列,访问修改距离后又把节点加进去,(但是原来里面就有的那个不会删除,其实会造成重复的,因为必须重新添加才会重新排序,
+         * 所以重复是必要的,且每轮都找头节点,然后删,所以即使重复就会直接删掉怕,也不会有影响
+         */
         PriorityQueue<Vertex> queue = new PriorityQueue<>(Comparator.comparingInt(v -> v.dist));
         source.dist = 0;
         for (Vertex v : graph) {
@@ -37,8 +41,10 @@ public class DijkstraPriorityQueue {
 
         while (!queue.isEmpty()) {
 //            System.out.println(queue);
-            // 3. 选取当前顶点
+            // 3. 找一个节点作为 当前顶点
             Vertex curr = queue.peek();
+            System.out.println("找一个节点"+curr+"作为 当前顶点");
+            System.out.println("最初"+queue);
             // 4. 更新当前顶点邻居距离
             if(!curr.visited) {
                 updateNeighboursDist(curr, queue);
@@ -46,6 +52,7 @@ public class DijkstraPriorityQueue {
             }
             // 5. 移除当前顶点
             queue.poll();
+            System.out.println("移除头节点"+queue);
         }
 
         for (Vertex v : graph) {
@@ -56,12 +63,14 @@ public class DijkstraPriorityQueue {
     private static void updateNeighboursDist(Vertex curr, PriorityQueue<Vertex> queue) {
         for (Edge edge : curr.edges) {
             Vertex n = edge.linked;
+            System.out.println("本轮更新的是"+n);
             if (!n.visited) {
                 int dist = curr.dist + edge.weight;
                 if (dist < n.dist) {
                     n.dist = dist;
                     n.prev = curr;
                     queue.offer(n);
+                    System.out.println(queue);
                 }
             }
         }
