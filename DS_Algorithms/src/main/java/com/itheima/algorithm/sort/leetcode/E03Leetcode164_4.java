@@ -1,9 +1,5 @@
-package com.itheima.algorithm.sort;
+package com.itheima.algorithm.sort.leetcode;
 
-
-import com.itheima.datastructure.array.DynamicArray;
-
-import java.util.Arrays;
 
 public class E03Leetcode164_4 {
     public int maximumGap(int[] nums) {

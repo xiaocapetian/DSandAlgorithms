@@ -1,5 +1,6 @@
 package com.itheima.algorithm.sort;
 
+import com.itheima.algorithm.sort.leetcode.E01Leetcode1122;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;

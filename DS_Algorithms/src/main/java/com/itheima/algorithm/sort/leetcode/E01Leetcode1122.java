@@ -1,4 +1,4 @@
-package com.itheima.algorithm.sort;
+package com.itheima.algorithm.sort.leetcode;
 
 import java.util.Arrays;
 

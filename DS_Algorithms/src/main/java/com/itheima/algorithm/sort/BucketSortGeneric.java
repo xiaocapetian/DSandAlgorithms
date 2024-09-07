@@ -1,5 +1,6 @@
 package com.itheima.algorithm.sort;
 
+import com.itheima.algorithm.sort.InsertSort.InsertionSort;
 import com.itheima.datastructure.array.DynamicArray;
 
 import java.util.ArrayList;

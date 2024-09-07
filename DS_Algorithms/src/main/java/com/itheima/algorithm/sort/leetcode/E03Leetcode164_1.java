@@ -1,6 +1,7 @@
-package com.itheima.algorithm.sort;
+package com.itheima.algorithm.sort.leetcode;
 
 
+import com.itheima.algorithm.sort.InsertSort.InsertionSort;
 import com.itheima.datastructure.array.DynamicArray;
 
 public class E03Leetcode164_1 {

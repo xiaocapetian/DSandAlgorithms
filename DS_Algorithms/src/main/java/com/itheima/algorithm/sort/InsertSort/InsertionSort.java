@@ -1,4 +1,4 @@
-package com.itheima.algorithm.sort;
+package com.itheima.algorithm.sort.InsertSort;
 
 import java.util.Arrays;
 
@@ -20,13 +20,14 @@ public class InsertionSort {
             if (i != low - 1) {
                 a[i + 1] = t;
             }
+            System.out.println("一轮排序后:"+Arrays.toString(a));
         }
     }
 
     public static void main(String[] args) {
         int[] a = {9, 3, 7, 2, 5, 8, 1, 4};
-        System.out.println(Arrays.toString(a));
+        System.out.println("排序之前:"+Arrays.toString(a));
         sort(a);
-        System.out.println(Arrays.toString(a));
+        System.out.println("排序之后:"+Arrays.toString(a));
     }
 }
